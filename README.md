@@ -1,9 +1,9 @@
-#SMPT-Lab
+# SMPT-Lab
 
-##Description
+## Description
 
-##Configuration du serveur mock SMTP
+## Configuration du serveur mock SMTP
 
-##Lancer la campagne de canular
+## Lancer la campagne de canular
 
-##Description de l'implémentation
+## Description de l'implémentation
