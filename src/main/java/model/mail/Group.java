@@ -5,9 +5,10 @@ import java.util.Iterator;
 import java.util.List;
 
 public class Group {
-    private Person sender;
-    private List<Person> recipients = new ArrayList<>();
+    private final Person sender;
+    private final List<Person> recipients = new ArrayList<>();
 
+    // TODO: Remove.
     public Group(Person sender) {
         this.sender = sender;
     }
