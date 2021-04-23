@@ -13,10 +13,22 @@ public class Group {
         this.sender = sender;
     }
 
+    public Group(Person[] people) {
+        int senderIndex = (int)(people.length * Math.random());
+        sender = people[senderIndex];
+
+        for (int i = 0; i < people.length; ++i) {
+            if (i != senderIndex) {
+                recipients.add(people[i]);
+            }
+        }
+    }
+
     public Person getSender() {
         return sender;
     }
 
+    // TODO: Remove.
     public void addRecipient(Person recipient) {
         recipients.add(recipient);
     }
