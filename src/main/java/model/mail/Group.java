@@ -17,7 +17,7 @@ public class Group {
         int senderIndex = (int)(people.length * Math.random());
         sender = people[senderIndex];
 
-        for (int i = 0; i < people.length; ++i) {
+        for (int i = 0; i < people.size(); ++i) {
             if (i != senderIndex) {
                 recipients.add(people[i]);
             }

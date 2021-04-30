@@ -1,0 +1,9 @@
+subject: The earth says hello.
+Good morning, Starshine. The Earth says hello!
+---
+subject: Hello world
+Hello world.
+---
+subject: Guten Tag
+Hallo Suzi Guten Morgen !
+Komm wir spielen, komm, komm, komm !

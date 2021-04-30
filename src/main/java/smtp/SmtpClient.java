@@ -13,7 +13,7 @@ public class SmtpClient {
     private final String host;
     private final int port;
 
-    private String EHLOName = "TODO";
+    private static final String EHLOName = "res_2021";
 
     public SmtpClient(String host, int port){
         this.host = host;
@@ -56,6 +56,11 @@ public class SmtpClient {
                 writer.println("RCPT TO: " + p.getEmail());
                 writer.flush();
                 reader.readLine();
+                if(witnessToCC != null){
+                    writer.println("RCPT TO: " + witnessToCC);
+                    writer.flush();
+                    reader.readLine();
+                }
                 writer.println("DATA");
                 writer.flush();
                 reader.readLine();
@@ -63,7 +68,13 @@ public class SmtpClient {
                 writer.flush();
                 writer.println("To: " + p.getEmail());
                 writer.flush();
+                if(witnessToCC != null){
+                    writer.println("To: " + witnessToCC);
+                    writer.flush();
+                }
                 writer.println("Subject: " + msg.getSubject());
+                writer.flush();
+                writer.println();
                 writer.flush();
                 writer.println(msg.getContent());
                 writer.flush();

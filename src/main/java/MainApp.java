@@ -2,6 +2,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Properties;
 
+import model.mail.Group;
 import model.mail.Message;
 import model.mail.Person;
 import smtp.SmtpClient;
@@ -31,7 +32,7 @@ public class MainApp {
                     for (line = reader.readLine(); line != null || line.trim() != "---"; line = reader.readLine()) {
                         content += line;
                     }
-                    messages.add(new Message(subject, content));
+                    messages.add(new Message(subject, content.toString().stripTrailing()));
                 }
             }
 
@@ -53,10 +54,10 @@ public class MainApp {
 }
 
 class Config {
-    private String smtpServerHost;
-    private int smtpServerPort;
-    private int numberOfGroups;
-    private String witnessToCC;
+    private final String smtpServerHost;
+    private final int smtpServerPort;
+    private final int numberOfGroups;
+    private final String witnessToCC;
 
     public Config(String filename) throws IOException {
         try (InputStream input = getClass().getClassLoader().getResourceAsStream(filename)) {
