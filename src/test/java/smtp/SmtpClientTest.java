@@ -13,7 +13,7 @@ public class SmtpClientTest {
 
     @BeforeAll
     public static void init(){
-        client = new SmtpClient("localhost", 2525);
+        client = new SmtpClient("localhost", 2525, null);
     }
 
     @Test

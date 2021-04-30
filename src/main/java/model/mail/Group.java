@@ -13,13 +13,13 @@ public class Group {
         this.sender = sender;
     }
 
-    public Group(Person[] people) {
-        int senderIndex = (int)(people.length * Math.random());
-        sender = people[senderIndex];
+    public Group(ArrayList<Person> people) {
+        int senderIndex = (int)(people.size() * Math.random());
+        sender = people.get(senderIndex);
 
         for (int i = 0; i < people.size(); ++i) {
             if (i != senderIndex) {
-                recipients.add(people[i]);
+                recipients.add(people.get(i));
             }
         }
     }

@@ -9,15 +9,38 @@ import smtp.SmtpClient;
 
 public class MainApp {
     private static String CONFIG = "config.properties";
-    private static String MESSAGES = "messages.txt";
-    private static String VICTIMS = "victims.txt";
+    private static String MESSAGES = "./resources/messages.txt";
+    private static String VICTIMS = "./resources/victims.txt";
 
     public static void main(String[] args) throws Exception {
         Config config = new Config(CONFIG);
         ArrayList<Message> messages = readMessages(MESSAGES);
         ArrayList<Person> victims = readVictims(VICTIMS);
 
-        SmtpClient client = new SmtpClient(config.getSmtpServerHost(), config.getSmtpServerPort());
+        if (config.getNumberOfGroups() * 3 > victims.size()) {
+            throw new IllegalArgumentException("Il y a moins de 3 personnes par groupe");
+        }
+
+        ArrayList<Person>[] groups = new ArrayList[config.getNumberOfGroups()];
+        for(int i = 0; i<groups.length; ++i){
+            groups[i] = new ArrayList<>();
+        }
+        for(int i = 0; i < victims.size(); ++i){
+            groups[i % config.getNumberOfGroups()].add(victims.get(i));
+        }
+
+        Group[] realGroups = new Group[config.getNumberOfGroups()];
+
+        for(int i = 0; i < groups.length; ++i){
+            realGroups[i] = new Group(groups[i]);
+        }
+
+        SmtpClient client = new SmtpClient(config.getSmtpServerHost(), config.getSmtpServerPort(),
+                config.getWitnessToCC());
+        for(Group group : realGroups) {
+            Message messageToSend = messages.get((int)(Math.random() * messages.size()));
+            client.sendMessageToGroup(messageToSend, group);
+        }
     }
 
     private static ArrayList<Message> readMessages(String filename) throws Exception {
@@ -25,12 +48,13 @@ public class MainApp {
             ArrayList<Message> messages = new ArrayList<>();
 
             for (String line = reader.readLine(); line != null; line = reader.readLine()) {
-                if (line.startsWith("Subject:")) {
+                if (line.toLowerCase().startsWith("subject:")) {
                     String subject = line.substring(8).trim();
 
-                    String content = "";
-                    for (line = reader.readLine(); line != null || line.trim() != "---"; line = reader.readLine()) {
-                        content += line;
+                    StringBuilder content = new StringBuilder();
+                    for (line = reader.readLine(); line != null && !line.trim().equals("---"); line = reader.readLine()) {
+                        content.append(line);
+                        content.append("\n");
                     }
                     messages.add(new Message(subject, content.toString().stripTrailing()));
                 }

@@ -12,12 +12,14 @@ public class SmtpClient {
 
     private final String host;
     private final int port;
+    private final String witnessToCC;
 
     private static final String EHLOName = "res_2021";
 
-    public SmtpClient(String host, int port){
+    public SmtpClient(String host, int port, String witnessToCC){
         this.host = host;
         this.port = port;
+        this.witnessToCC = witnessToCC;
     }
 
     public void sendMessageToGroup(Message msg, Group grp){
