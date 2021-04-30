@@ -34,30 +34,43 @@ public class SmtpClient {
             PrintWriter writer = new PrintWriter(new OutputStreamWriter(os));
             BufferedReader reader = new BufferedReader(new InputStreamReader(is));
 
-            while (!response.split(" ")[0].equals("220")) {
+            response = reader.readLine();
+            System.out.println(response);
+
+            System.out.println("EHLO " + EHLOName);
+            writer.println("EHLO " + EHLOName);
+            writer.flush();
+            response = reader.readLine();
+            System.out.println(response);
+            while (!response.startsWith("250 ")) {
                 response = reader.readLine();
                 System.out.println(response);
             }
-            System.out.println("EHLO " + EHLOName);
-            writer.println("EHLO " + EHLOName);
-            response = reader.readLine();
-            System.out.println(response);
 
             Iterator<Person> personIterator = grp.recipients();
             while(personIterator.hasNext()) {
                 Person p = personIterator.next();
                 writer.println("MAIL FROM: " + grp.getSender().getEmail());
+                writer.flush();
                 reader.readLine();
-                writer.println("MAIL TO: " + p.getEmail());
+                writer.println("RCPT TO: " + p.getEmail());
+                writer.flush();
                 reader.readLine();
                 writer.println("DATA");
+                writer.flush();
                 reader.readLine();
                 writer.println("From: " + grp.getSender().getEmail()); //false e-mail ?
+                writer.flush();
                 writer.println("To: " + p.getEmail());
+                writer.flush();
                 writer.println("Subject: " + msg.getSubject());
+                writer.flush();
                 writer.println(msg.getContent());
+                writer.flush();
                 writer.println(".");
+                writer.flush();
                 writer.println();
+                writer.flush();
                 reader.readLine();
             }
 
