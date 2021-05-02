@@ -8,7 +8,7 @@ Le client est implémenté en java et envoie des e-mails sur un serveur créé a
 1. Cloner le repo depuis Github :
    `git clone https://github.com/soso24soso/LaboSMTP`
 2. Se déplacer dans la racine du projet :
-   `cd LaboSMPT`
+   `cd LaboSMTP`
 3. Build l'image docker :
    `docker build -t smtp/mockmock .`
 4. Lancer l'image docker :
