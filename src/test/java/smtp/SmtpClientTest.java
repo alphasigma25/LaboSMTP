@@ -12,8 +12,8 @@ public class SmtpClientTest {
 
     @Test
     public void test1(){
-        Group g = new Group(new Person("anne.ganguillet@heig-vd.ch"));
-        g.addRecipient(new Person("anne.ganguillet@heig-vd.ch"));
+        Group g = new Group(new Person("satire@aol.com"));
+        g.addRecipient(new Person("satire@aol.com"));
         client.sendMessageToGroup(new Message("Hello","Hello hello"), g);
         Assertions.assertNotEquals(2,3);
     }
