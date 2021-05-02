@@ -53,22 +53,28 @@ public class SmtpClient {
             while(personIterator.hasNext()) {
                 Person p = personIterator.next();
                 writer.println("MAIL FROM: " + grp.getSender().getEmail());
+                System.out.println("MAIL FROM: " + grp.getSender().getEmail());
                 writer.flush();
-                reader.readLine();
+                System.out.println(reader.readLine());
                 writer.println("RCPT TO: " + p.getEmail());
+                System.out.println("RCPT TO: " + p.getEmail());
                 writer.flush();
-                reader.readLine();
+                System.out.println(reader.readLine());
                 if(witnessToCC != null){
                     writer.println("RCPT TO: " + witnessToCC);
+                    System.out.println("RCPT TO: " + witnessToCC);
                     writer.flush();
-                    reader.readLine();
+                    System.out.println(reader.readLine());
                 }
                 writer.println("DATA");
+                System.out.println("DATA");
                 writer.flush();
-                reader.readLine();
-                writer.println("From: " + grp.getSender().getEmail()); //false e-mail ?
+                System.out.println(reader.readLine());
+                writer.println("From: " + grp.getSender().getEmail());
+                System.out.println("From: " + grp.getSender().getEmail());
                 writer.flush();
                 writer.println("To: " + p.getEmail());
+                System.out.println("To: " + p.getEmail());
                 writer.flush();
                 if(witnessToCC != null){
                     System.out.println("Cc: " + witnessToCC);
