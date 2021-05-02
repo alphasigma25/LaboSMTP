@@ -6,13 +6,13 @@ Le client est implémenté en java et envoie des e-mails sur un serveur créé a
 
 ## Configuration du serveur mock SMTP
 1. Cloner le repo depuis Github :
-   `git clone https://github.com/soso24soso/LaboSMPT`
+   `git clone https://github.com/soso24soso/LaboSMTP`
 2. Se déplacer dans la racine du projet :
    `cd LaboSMPT`
 3. Build l'image docker :
-   `docker build -t SMPT/mockmock .`
+   `docker build -t smtp/mockmock .`
 4. Lancer l'image docker :
-   `docker run -p 8282:8282 -p 2525:2525 SMPT/mockmock .`
+   `docker run -p 8282:8282 -p 2525:2525 smtp/mockmock .`
 
 ## Lancer la campagne de canular
 Depuis la racine du projet :
