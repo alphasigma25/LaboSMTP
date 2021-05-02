@@ -25,6 +25,8 @@ Depuis la racine du projet :
    `java -jar LaboSMTP-1.0.jar`
 
 ## Description de l'implémentation
+![Diagramme de classes](./figures/Labo_SMTP.png)
+
 Le code est séparé en deux parties.
 Une partie modèle représentant les personnes, les groupes et les messages.
 Une partie implémentant la logique permettant de réaliser les canulars.
