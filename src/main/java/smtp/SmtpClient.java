@@ -71,20 +71,26 @@ public class SmtpClient {
                 writer.println("To: " + p.getEmail());
                 writer.flush();
                 if(witnessToCC != null){
-                    writer.println("To: " + witnessToCC);
+                    System.out.println("Cc: " + witnessToCC);
+                    writer.println("Cc: " + witnessToCC);
                     writer.flush();
                 }
+                System.out.println("Subject: " + msg.getSubject());
                 writer.println("Subject: " + msg.getSubject());
                 writer.flush();
+                System.out.println();
                 writer.println();
                 writer.flush();
+                System.out.println(msg.getContent());
                 writer.println(msg.getContent());
                 writer.flush();
+                System.out.println(".");
                 writer.println(".");
                 writer.flush();
+                System.out.println();
                 writer.println();
                 writer.flush();
-                reader.readLine();
+                System.out.println(reader.readLine());
             }
 
         }catch(IOException ex){
