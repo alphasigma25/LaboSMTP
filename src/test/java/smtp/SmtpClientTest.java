@@ -4,17 +4,11 @@ import model.mail.Group;
 import model.mail.Message;
 import model.mail.Person;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 public class SmtpClientTest {
 
-    private static SmtpClient client;
-
-    @BeforeAll
-    public static void init(){
-        client = new SmtpClient("localhost", 2525, null);
-    }
+    private static final SmtpClient client = new SmtpClient("localhost", 2525, null);;
 
     @Test
     public void test1(){
@@ -23,5 +17,4 @@ public class SmtpClientTest {
         client.sendMessageToGroup(new Message("Hello","Hello hello"), g);
         Assertions.assertNotEquals(2,3);
     }
-
 }
