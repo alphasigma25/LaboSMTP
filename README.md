@@ -32,7 +32,9 @@ Une partie implémentant la logique permettant de réaliser les canulars.
 La classe MainApp se charge de récupérer la liste des personnes dans le
 fichier `resources/victims.txt` et le contenu des e-mails à envoyer dans
 `resources/messages.txt.`.
+
 La classe PrankGenerator créé les groupes de personnes et envoie les e-mails à l'aide du client SMTP.
+
 La classe SmtpClient implémente un client SMTP permettant d'envoyer un message à un groupe.
 
 ### Exemple de conversation entre client et serveur MockMock
