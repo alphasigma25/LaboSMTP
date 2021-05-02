@@ -8,7 +8,6 @@ public class Group {
     private final Person sender;
     private final List<Person> recipients = new ArrayList<>();
 
-    // TODO: Remove.
     public Group(Person sender) {
         this.sender = sender;
     }
@@ -28,7 +27,6 @@ public class Group {
         return sender;
     }
 
-    // TODO: Remove.
     public void addRecipient(Person recipient) {
         recipients.add(recipient);
     }
