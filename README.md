@@ -12,7 +12,7 @@ Le client est implémenté en java et envoie des e-mails sur un serveur créé a
 3. Build l'image docker :
    `docker build -t smtp/mockmock .`
 4. Lancer l'image docker :
-   `docker run -p 8282:8282 -p 2525:2525 smtp/mockmock .`
+   `docker run -p 8282:8282 -p 2525:2525 smtp/mockmock`
 
 ## Lancer la campagne de canular
 Depuis la racine du projet :
