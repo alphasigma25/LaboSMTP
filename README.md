@@ -35,4 +35,5 @@ fichier `resources/victims.txt` et le contenu des e-mails à envoyer dans
 La classe PrankGenerator créé les groupes de personnes et envoie les e-mails à l'aide du client SMTP.
 La classe SmtpClient implémente un client SMTP permettant d'envoyer un message à un groupe.
 
-![TODO: Ajouter un exemple de dialogue](figures/...)
+### Exemple de conversation entre client et serveur MockMock
+![Communication SMTP entre un client et un serveur](figures/communication.png)

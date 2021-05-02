@@ -118,6 +118,5 @@ public class SmtpClient {
                 System.out.println(ex.getMessage());
             }
         }
-
     }
 }
