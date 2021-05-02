@@ -36,4 +36,4 @@ La classe PrankGenerator créé les groupes de personnes et envoie les e-mails �
 La classe SmtpClient implémente un client SMTP permettant d'envoyer un message à un groupe.
 
 ### Exemple de conversation entre client et serveur MockMock
-![Communication SMTP entre un client et un serveur](figures/communication.png)
+![Communication SMTP entre un client et un serveur](./figures/Communication.png)
